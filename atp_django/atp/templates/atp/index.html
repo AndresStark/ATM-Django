@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    <header>
+        <h1>Hola Mundo!</h1>
+    </header>
+    <main>
+        <section>
+            <figure>
+                <img src="{% static 'atp/images/cajero.gif' %}">
+            </figure>
+        </section>
+        <section>
+            <h2>Introduce la cantidad de dinero deseada:</h2>
+            <br>
+            <input type="number" name="request" id="request" value="0">
+            <input type="submit" name="send" id="send" value="Solicitar">
+        </section>
+    </main>
+</body>
+</html>

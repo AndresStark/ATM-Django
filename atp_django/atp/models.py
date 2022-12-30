@@ -12,4 +12,12 @@ class Bills(models.Model):
 class Box(models.Model):
     def __str__(self):
         return self.storage
-    storage = models.ForeignKey(Bills, on_delete=models.CASCADE)
+    storage = []
+
+class Request(models.Model):
+    def __str__(self):
+        return self.name
+    
+    total = models.IntegerField()
+    requested_bills = []
+    transaction_text = models.CharField(max_length=100, default="Soy un cajero malo, he sido malo y no puedo darte esa cantidad")
