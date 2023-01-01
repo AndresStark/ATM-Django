@@ -33,6 +33,17 @@
                 id="send" 
                 value="Solicitar"
             >
+            <h1>
+                {% if monetary_state %}
+                    {% for bill in monetary_state %}
+                    <ul>
+                        <li>
+                            Quedan {{ bill.quantity }} billetes de ${{ bill.value }}
+                        </li>
+                    </ul>
+                    {% endfor %}
+                {% endif %}
+            </h1>
         </section>
     </main>
 </body>
