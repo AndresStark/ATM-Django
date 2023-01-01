@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 from django.views import generic
+# from models import Request
 
 
 # def index(request):
@@ -9,13 +10,12 @@ from django.views import generic
 class IndexView(generic.ListView):
     template_name: str = 'atp/index.html'
     def get_queryset(self):
-        pass
-    
-
-    def request():
         """
         Stores the amount of money requested
         """
+        # Request(id=1, request=HttpRequest.getvalue()).save()
+        pass
+        
 
 class RequestView(generic.ListView):
     template_name: str = 'atp/request.html'
