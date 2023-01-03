@@ -1,0 +1,146 @@
+/* Body Style */
+
+body {
+    /* background-color: #224555; */
+    color: #333;
+    text-align: center;
+    font-family: Arial;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background: #33A;
+    box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.5);
+    color: white;
+    font-weight: bold;
+    margin: 0px 15%;
+    padding: 0.7em;
+}
+
+.header .tagline {
+    padding: 0 0 0 1em;
+    font-weight: normal;
+    font-size: 0.8em;
+}
+
+.container {
+    width: 70%;
+    padding: 0;
+    text-align: center;
+    border: 1px solid #DDD;
+    margin: 0 auto;
+}
+
+.container h1 {
+    font-size: 20px;
+}
+
+.section-user-display {
+    height: 300px;
+    display: block;
+}
+
+.section-user-display .atp-image {
+    width: 40%;
+    padding: 15px 0;
+    float: left;
+}
+
+.money-tag {
+    display: inline-block;
+    text-align: center;
+    padding: 60px 0;
+    margin: 30px 0;
+    width: 60%;
+}
+
+.money-tag p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+}
+
+.money-tag span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.section-forms {
+    height: 375px;
+    display: block;
+    text-align: center;
+}
+
+.atp-buttons {
+    width: 35%;
+    padding: 0 60px;
+    float: left;
+}
+
+#atp-numbers input:hover {
+    background-color: #333;
+}
+
+#atp-numbers input:active {
+    background-color: lightgray;
+}
+
+.atp-buttons input {
+    height: 80px;
+    width: 80px;
+    margin: 5px;
+    border: 2px solid darkslategrey;
+    background-color: gray;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#atp-delete-submit {
+    padding: 120px 70px;
+}
+
+#atp-delete-submit input {
+    width: 140px;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+#atp-delete-submit #delete {
+    background-color: red;
+}
+
+#atp-delete-submit #delete:hover {
+    background-color: darkred;
+}
+
+#atp-delete-submit #delete:active {
+    background-color: lightcoral;
+}
+
+#atp-delete-submit #submit {
+    background-color: green;
+}
+
+#atp-delete-submit #submit:hover {
+    background-color: darkgreen;
+}
+
+#atp-delete-submit #submit:active {
+    background-color: lightgreen;
+}
+
+.footer {
+    background: #224555;
+    box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.5);
+    color: white;
+    font-weight: bold;
+    margin: 0px 15%;
+    padding: 0.7em;
+}
+
+.footer span {
+    padding: 0 20px;
+}
