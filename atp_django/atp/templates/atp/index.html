@@ -6,24 +6,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'atp/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'atp/style.css' %}">
     <title>Index</title>
 </head>
 <body>
-    <header>
-        <h1>Hola Mundo!</h1>
+    <header class="header">
+        <span class="tagline">ATP Django</span>
     </header>
-    <main>
-        <section>
-            <figure>
+    <main class="container">
+        <section class="section-user-display">
+            <figure class="atp-image">
                 <img src="{% static 'atp/images/cajero.gif' %}">
             </figure>
+            <div class="money-tag">
+                <p>Introduce la cantidad de dinero deseada:</p>
+                <br>
+                <span>$</span><span></span>
+                <br>
+            </div>
         </section>
-        <section>
-            <h2>Introduce la cantidad de dinero deseada:</h2>
-            <br>
-            <input type="number" name="request" id="request" value="0">
-            <input type="submit" name="send" id="send" value="Solicitar">
+        <section class="section-forms">
+            <form class="atp-buttons" id="atp-numbers">
+                <input type="button" value="1" id="number-1">
+                <input type="button" value="2" id="number-2">
+                <input type="button" value="3" id="number-3">
+                <br>
+                <input type="button" value="4" id="number-4">
+                <input type="button" value="5" id="number-5">
+                <input type="button" value="6" id="number-6">
+                <br>
+                <input type="button" value="7" id="number-7">
+                <input type="button" value="8" id="number-8">
+                <input type="button" value="9" id="number-9">
+                <br>
+                <input type="button" value="0" id="number-0">
+            </form>
+            <form class="atp-buttons" id="atp-delete-submit">
+                <input type="button" value="Borrar" id="delete">
+                <input type="button" value="Solicitar" id="submit">
+            </form>
         </section>
     </main>
+    <footer class="footer">
+        <span>AndresFlamel</span>
+        <span>andres.sanchez.cloud@gmail.com</span>
+        <span>AndresStark</span>
+    </footer>
 </body>
 </html>
