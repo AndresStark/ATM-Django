@@ -26,6 +26,7 @@
                 <br>
             </div>
         </section>
+<<<<<<< HEAD
         <section class="section-forms">
             <form class="atp-buttons" id="atp-numbers">
                 <input type="button" value="1" id="number-1">
@@ -46,6 +47,34 @@
                 <input type="button" value="Borrar" id="delete">
                 <input type="button" value="Solicitar" id="submit">
             </form>
+=======
+        <section>
+            <h2>Introduce la cantidad de dinero deseada:</h2>
+            <br>
+            <input 
+                type="number" 
+                name="request" 
+                id="request" 
+                value="0"
+            >
+            <input 
+                type="submit" 
+                name="send" 
+                id="send" 
+                value="Solicitar"
+            >
+            <h1>
+                {% if monetary_state %}
+                    {% for bill in monetary_state %}
+                    <ul>
+                        <li>
+                            Quedan {{ bill.quantity }} billetes de ${{ bill.value }}
+                        </li>
+                    </ul>
+                    {% endfor %}
+                {% endif %}
+            </h1>
+>>>>>>> logic
         </section>
     </main>
     <footer class="footer">
