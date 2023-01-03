@@ -19,7 +19,7 @@ class IndexView(generic.ListView):
         request_screen = 0
 
         cajita = Bills.objects.all()
-        return cajita, request_screen
+        return cajita, str(request_screen)
         # Request(id=1, request=HttpRequest.getvalue()).save()
         
 

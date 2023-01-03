@@ -1,4 +1,6 @@
 env/
+atp_django/atp/__pycache__
+atp/__pycache__
 *.gif
 *.jpg
 *.pyc
