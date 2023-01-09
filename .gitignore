@@ -1,7 +1,6 @@
 env/
-atp_django/atp/__pycache__/
-atp/__pycache__/
 __pycache__/
+migrations/
 *.gif
 *.jpg
 *.pyc

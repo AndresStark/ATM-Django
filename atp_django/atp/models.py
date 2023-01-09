@@ -11,17 +11,21 @@ class Bills(models.Model):
 
 
 class Request(models.Model):
-    request = models.IntegerField(default=0)
-    requested_bills = {}
-    transaction_text = models.CharField(max_length=100, default="Soy un cajero malo, he sido malo y no puedo darte esa cantidad")
+    requested_amount = models.IntegerField(default=0)
+    request_status = models.CharField(max_length=100, default="Good")
 
     def __str__(self):
-        return ("Se solicitó: " + self.request)
+        return ("Se solicitó: " + str(self.requested_amount))
+
+    def delete(self, current):
+        Request.objects.get(id=current).requested_amount=0
 
 
 class Transaction(models.Model):
-    storage = []
+    transaction_amount = models.IntegerField(default=0)
+    transaction_status = models.CharField(max_length=100, default="Soy un cajero malo, he sido malo y no puedo darte esa cantidad")
+    requested_bills = {}
     request = (models.ForeignKey(Request, on_delete=models.DO_NOTHING),)
 
     def __str__(self):
-        return self.storage
+        return str(self.transaction_amount)
