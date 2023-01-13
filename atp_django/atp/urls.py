@@ -6,4 +6,5 @@ urlpatterns = [
     # ex: /atp/
     path("", views.IndexView.as_view(), name="index"),
     path("request/", views.UserFormView.as_view(), name="request"),
+    path("request/money", views.MoneyView.as_view(), name="money"),
 ]

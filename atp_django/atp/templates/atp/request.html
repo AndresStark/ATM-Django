@@ -1,16 +1,29 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'atp/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'atp/request.css' %}">
     <title>Request</title>
 </head>
 <body>
+    <header>
+        <span>Se extraerá:</span><br>
+        <span>{{ form.cleaned_data.digital_number }}</span>
+    </header>
     <main>
         <section>
-            <h2>Hello word</h2>
-            <span>{{ form.cleaned_data.digital_number }}</span>
+            <form action="{% url 'atp:money' %}" method='POST' class="" id="">
+                <input type="number" value={{ form.cleaned_data.digital_number }} hidden><br>
+                <input type="submit" value="Confirmar">
+            </form>
+            <form action="{% url 'atp:index' %}">
+                <input type="submit" value="Regresar">
+            </form>
         </section>
     </main>
 </body>

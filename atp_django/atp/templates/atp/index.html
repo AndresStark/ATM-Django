@@ -42,7 +42,7 @@
                 <br>
                 <input type="button" value="0" name="number-0" id="number-0">
             </form>
-            <form action='{% url 'atp:request' %}' method='POST' class="atp-buttons" id="atp-delete-submit">
+            <form action="{% url 'atp:request' %}" method='POST' class="atp-buttons" id="atp-delete-submit">
                 {% csrf_token %}
                 <input type="number" name="digital_number" id="number_box" value={{ current_number }} hidden>
                 <input type="button" value="Borrar" id="delete" name="delete">
@@ -55,6 +55,6 @@
         <span>andres.sanchez.cloud@gmail.com</span>
         <span>AndresStark</span>
     </footer>
-    <script src="{% static 'atp/scripts.js' %}"></script>
+    <script src="{% static 'atp/index.js' %}"></script>
 </body>
 </html>
