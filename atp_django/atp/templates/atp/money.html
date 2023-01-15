@@ -6,13 +6,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Money</title>
 </head>
 <body>
-    <h1>Hola mundoooo</h1>
     <header>
         <span class="header-span-title">Transacción Exitosa</span>
-        <span class="header-span-number">{{ form.cleaned_data.digital_number }}</span>
+        <span class="header-span-textnumber">Cantidad extraída: </span>
+        <span class="header-span-number">${{ transaction.amount }}</span>
     </header>
     <main>
         <section>
@@ -20,6 +20,22 @@
                 <input type="submit" value="Regresar" class="form-input-return">
             </form>
         </section>
+        {% for img in transaction.requested_bills %}
+            <span>{{ img.url }}</span>
+        {% endfor %}
+        {% if transaction.aux_money == 0 %}
+        <section>
+            {% for img in transaction.requested_bills %}
+                {% if img.quantity > 0 %}
+                    {% with ''|center:img.quantity as range %}
+                    {% for _ in range %}
+                        <img src="{% static img.img %}">
+                    {% endfor %}
+                    {% endwith %}
+                {% endif %}
+            {% endfor %}
+        </section>
+        {% endif %}
     </main>
 </body>
 </html>

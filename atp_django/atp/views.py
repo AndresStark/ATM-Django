@@ -53,7 +53,7 @@ class IndexView(generic.ListView):
 class UserFormView(generic.ListView):
     model = Transaction
     form_class = NumberForm
-    template_name = 'atp/request.html'
+    template_name: str = 'atp/request.html'
 
     def post(self, request):
         if request.method == 'POST':
@@ -95,52 +95,6 @@ class MoneyView(generic.ListView):
     model = Transaction
     form_class = NumberForm
     template_name: str = 'atp/money.html'
-    context_object_name = "money"
-
-    def get_queryset(self):
-        """
-        Regresa una imagen de cada billete solicitado si está disponible,
-        Si no lo está, retorna un mensaje "No hay dinero"
-        """
-        box = Bills.objects.all()
-        money = int(NumberForm.digital_number)
-        bills_requested = []
-        papers = 0
-        # transaction = Transaction.objects.get(id=1)
-
-        bill_1 = Bills()
-        bill_1.value = 1
-        bill_1.quantity = 5
-
-        bill_2 = Bills()
-        bill_2.value = 5
-        bill_2.quantity = 7
-
-        bills_requested.append(bill_1)
-        bills_requested.append(bill_2)
-
-
-        for bi in box:
-            if money > 0:
-                div = math.floor(money / bi.value)
-                if div > bi.quantity:
-                    papers = bi.quantity
-                else:
-                    papers = div
-                
-                
-                bills_requested.append(Bills())
-                money -= bi.value * papers
-                if money <= 0:
-                    bi.quantity -= papers
-        
-        n = []
-        total_t = Transaction.objects.all()
-        for i in total_t:
-            n.append(i.pk)
-        
-        return Transaction.objects.get(pk=max(n))
-        
         # if money > 0:
         #     transaction.message = "Soy un cajero malo, he sido malo y no puedo darte esa cantidad"
         # else:
@@ -149,6 +103,7 @@ class MoneyView(generic.ListView):
         #             transaction.message = "Todo está OK"
         #             for e in i.quantity:
         #                 i.show()
+        
 
     def post(self, request):
         if request.method == 'POST':
@@ -158,11 +113,43 @@ class MoneyView(generic.ListView):
                 total_t = Transaction.objects.all()
                 for i in total_t:
                     n.append(i.pk)
-                t = Transaction.objects.get(pk=max(n))
-                t.status = "Finished"
-                t.message = "The transaction was done correctly"
-                t.save()
-                return render(request, 'atp/money.html', {'form': form})
+                transaction = Transaction.objects.get(pk=max(n))
+                
+                transaction.requested_bills = []
+                box = Bills.objects.all()
+                transaction.aux_money = int(form.cleaned_data['digital_number'])
+                papers = 0
+
+                for bi in box[::-1]:
+                    if transaction.aux_money > 0:
+                        div = math.floor(transaction.aux_money / bi.value)
+                        if div > bi.quantity:
+                            papers = bi.quantity
+                        else:
+                            papers = div
+                        
+                        bill = Bills()
+                        bill.quantity = papers
+                        bill.value = bi.value
+                        bill.img = f"atp/images/{bill.value}.jpg"
+                        transaction.requested_bills.append(bill)
+
+                        transaction.aux_money -= bi.value * papers
+                        if transaction.aux_money > 0:
+                            pass
+                        else:
+                            bi.quantity -= papers
+
+                if transaction.aux_money == 0:
+                    transaction.message = "The transaction was done correctly"
+                    transaction.status = "Finished"
+                    transaction.save()
+                else:
+                    transaction.message = "Soy un cajero malo, he sido malo y no puedo darte esa cantidad"
+                    transaction.status = "Failed"
+                    transaction.save()
+
+                return render(request, 'atp/money.html', {'transaction': transaction})
         else:
             form = self.form_class()
 
@@ -176,11 +163,11 @@ class MoneyView(generic.ListView):
                 total_t = Transaction.objects.all()
                 for i in total_t:
                     n.append(i.pk)
-                t = Transaction.objects.get(pk=max(n))
-                t.status = "Finished"
-                t.message = "The transaction was done correctly"
-                t.save()
-                return render(request, 'atp/money.html', {'form': form})
+                transaction = Transaction.objects.get(pk=max(n))
+                transaction.status = "Finished"
+                transaction.message = "The transaction was done correctly"
+                transaction.save()
+                return render(request, 'atp/money.html', {'transaction': transaction})
         else:
             form = self.form_class()
 
