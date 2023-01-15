@@ -9,6 +9,17 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Hola mundoooo</h1>
+    <header>
+        <span class="header-span-title">Transacción Exitosa</span>
+        <span class="header-span-number">{{ form.cleaned_data.digital_number }}</span>
+    </header>
+    <main>
+        <section>
+            <form action="{% url 'atp:index' %}" class="section-form-return">
+                <input type="submit" value="Regresar" class="form-input-return">
+            </form>
+        </section>
+    </main>
 </body>
 </html>

@@ -22,7 +22,9 @@
             <div class="money-tag">
                 <p>Introduce la cantidad de dinero deseada:</p>
                 <br>
-                <span>$</span><span id="digital_number" name="digital_number">{{ current_number }}</span>
+                <span>$</span><span id="digital_number" name="digital_number">{{ transaction.amount }}</span>
+                <br>
+                <span>Status: </span><span>{{ transaction.status }}</span>
                 <br>
             </div>
         </section>
@@ -44,7 +46,7 @@
             </form>
             <form action="{% url 'atp:request' %}" method='POST' class="atp-buttons" id="atp-delete-submit">
                 {% csrf_token %}
-                <input type="number" name="digital_number" id="number_box" value={{ current_number }} hidden>
+                <input type="number" name="digital_number" id="number_box" value="{{ transaction.amount }}" hidden>
                 <input type="button" value="Borrar" id="delete" name="delete">
                 <input type="submit" value="Solicitar" id="submit" name="submit">
             </form>

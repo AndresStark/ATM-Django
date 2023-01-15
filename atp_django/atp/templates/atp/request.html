@@ -7,23 +7,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'atp/reset.css' %}">
-    <link rel="stylesheet" href="{% static 'atp/request.css' %}">
+    <link rel="stylesheet" href="{% static 'atp/requests.css' %}">
     <title>Request</title>
 </head>
 <body>
     <header>
-        <span>Se extraerá:</span><br>
-        <span>{{ form.cleaned_data.digital_number }}</span>
+        {% if form.cleaned_data.digital_number == 0 %}
+        <span class="header-span-text">Transacción fallida</span>
+        {% else %}
+        <span class="header-span-text">Se extraerá:</span><br>
+        <span class="header-span-number">${{ form.cleaned_data.digital_number }}</span>
+        {% endif %}
     </header>
     <main>
         <section>
-            <form action="{% url 'atp:money' %}" method='POST' class="" id="">
-                <input type="number" value={{ form.cleaned_data.digital_number }} hidden><br>
-                <input type="submit" value="Confirmar">
+            {% if form.cleaned_data.digital_number == 0 %}
+            <form action="{% url 'atp:index' %}" class="section-form-return">
+                <input type="submit" value="Regresar" class="form-input-return">
             </form>
-            <form action="{% url 'atp:index' %}">
-                <input type="submit" value="Regresar">
+            {% else %}
+            <form action="{% url 'atp:index' %}" class="section-form-return">
+                <input type="submit" value="Regresar" class="form-input-return">
             </form>
+            <form action="{% url 'atp:money' %}" method='POST' class="section-form-confirm">
+                {% csrf_token %}
+                <input type="number" name="digital_number"  value="{{ form.cleaned_data.digital_number }}" hidden>
+                <input type="submit" value="Confirmar" class="form-input-confirm">
+            </form>
+            {% endif %}
         </section>
     </main>
 </body>
