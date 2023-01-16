@@ -6,34 +6,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'atp/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'atp/money.css' %}">
     <title>Money</title>
 </head>
 <body>
     <header>
-        <span class="header-span-title">Transacción Exitosa</span>
+        {% if transaction.aux_money == 0 %}
+        <span class="header-span-title">Transacción Exitosa</span><br><br>
         <span class="header-span-textnumber">Cantidad extraída: </span>
         <span class="header-span-number">${{ transaction.amount }}</span>
+        {% else %}
+        <span class="header-span-title">Transacción Fallida</span><br><br>
+        <span class="header-span-title">Soy un cajero malo, he sido malo y no puedo darte esa cantidad</span><br><br>
+        {% comment %} <span class="header-span-title">No hay suficiente dinero en la caja</span><br><br> {% endcomment %}
+        {% endif %}
     </header>
     <main>
-        <section>
+        <section class="main-section-input">
             <form action="{% url 'atp:index' %}" class="section-form-return">
-                <input type="submit" value="Regresar" class="form-input-return">
+                <input type="submit" value="Nueva Transacción" class="form-input-return">
             </form>
         </section>
-        {% for img in transaction.requested_bills %}
-            <span>{{ img.url }}</span>
-        {% endfor %}
         {% if transaction.aux_money == 0 %}
-        <section>
-            {% for img in transaction.requested_bills %}
-                {% if img.quantity > 0 %}
-                    {% with ''|center:img.quantity as range %}
-                    {% for _ in range %}
-                        <img src="{% static img.img %}">
-                    {% endfor %}
-                    {% endwith %}
-                {% endif %}
-            {% endfor %}
+        <section class="main-section-img">
+            <figure>
+                {% for img in transaction.requested_bills %}
+                    {% if img.quantity > 0 %}
+                        {% with ''|center:img.quantity as range %}
+                            {% for _ in range %}
+                                <img src="{% static img.img %}">
+                            {% endfor %}
+                        {% endwith %}
+                    {% endif %}
+                {% endfor %}
+            </figure>
         </section>
         {% endif %}
     </main>

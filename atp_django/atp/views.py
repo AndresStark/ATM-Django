@@ -9,23 +9,6 @@ from .forms import NumberForm
 from .models import Bills, Transaction
 
 
-# def index(request):
-#     return HttpResponse("Hello, world. You're at the polls index.")
-
-# class IndexView(generic.ListView):
-#     template_name: str = 'atp/index.html'
-#     context_object_name = "monetary_state"
-
-#     def get_queryset(self):
-#         """
-#         Waits for request
-#         """
-        # def number_changing(id, num):
-        #     n = Request.objects.get(id=id)
-        #     n.requested_amount = int(str(n.requested_amount) + str(num))            
-        # return Request.objects.get(id=1)
-
-
 
 class IndexView(generic.ListView):
     template_name: str = 'atp/index.html'
@@ -95,15 +78,7 @@ class MoneyView(generic.ListView):
     model = Transaction
     form_class = NumberForm
     template_name: str = 'atp/money.html'
-        # if money > 0:
-        #     transaction.message = "Soy un cajero malo, he sido malo y no puedo darte esa cantidad"
-        # else:
-        #     for i in bills_requested:
-        #         if i.quantity > 0:
-        #             transaction.message = "Todo está OK"
-        #             for e in i.quantity:
-        #                 i.show()
-        
+
 
     def post(self, request):
         if request.method == 'POST':
@@ -136,7 +111,7 @@ class MoneyView(generic.ListView):
 
                         transaction.aux_money -= bi.value * papers
                         if transaction.aux_money > 0:
-                            pass
+                            lolo = 0
                         else:
                             bi.quantity -= papers
 
