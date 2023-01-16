@@ -6,24 +6,3 @@
 
 # ATM-Django
 
-
-
-                
-###User Flux 
-
-```flow
-st=>start: Start
-ns=>operation: Number selection
-conf=>condition: Confirmation
-cond=>condition: Enough cash?
-goodend=>end: Money Requested
-
-st->ns->conf
-conf(yes)->cond
-conf(no)->ns
-cond(yes)->goodend
-cond(no)->ns
-
-```
-
-###End
