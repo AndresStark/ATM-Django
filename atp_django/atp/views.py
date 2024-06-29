@@ -111,7 +111,7 @@ class MoneyView(generic.ListView):
 
                         transaction.aux_money -= bi.value * papers
                         if transaction.aux_money > 0:
-                            lolo = 0
+                            pass
                         else:
                             bi.quantity -= papers
 

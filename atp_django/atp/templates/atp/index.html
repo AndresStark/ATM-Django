@@ -16,9 +16,6 @@
     </header>
     <main class="container">
         <section class="section-user-display">
-            <figure class="atp-image">
-                <img src="{% static 'atp/images/cajero.gif' %}">
-            </figure>
             <div class="money-tag">
                 <p>Introduce la cantidad de dinero deseada:</p>
                 <br>
@@ -27,6 +24,9 @@
                 <span hidden>Status: </span><span hidden>{{ transaction.status }}</span>
                 <br>
             </div>
+            <figure class="atp-image">
+                <img src="{% static 'atp/images/lector-tarjetas.png' %}">
+            </figure>
         </section>
         <section class="section-forms">
             <form class="atp-buttons" id="atp-numbers">

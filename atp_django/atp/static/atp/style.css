@@ -1,146 +1,180 @@
-/* Body Style */
+/* ---------------------------------------------------------------------------------------------------------- */
 
-body {
-    /* background-color: #224555; */
-    color: #333;
-    text-align: center;
-    font-family: Arial;
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
-}
+/* General Style */
 
-.header {
-    background: #33A;
-    box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.5);
-    color: white;
-    font-weight: bold;
-    margin: 0px 15%;
-    padding: 0.7em;
-}
+    body {
+        /* background-color: #224555; */
+        color: #333;
+        text-align: center;
+        font-family: Arial;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+    }
 
-.header .tagline {
-    padding: 0 0 0 1em;
-    font-weight: normal;
-    font-size: 0.8em;
-}
+/* ---------------------------------------------------------------------------------------------------------- */
 
-.container {
-    width: 70%;
-    padding: 0;
-    text-align: center;
-    border: 1px solid #DDD;
-    margin: 0 auto;
-}
+/* Header Style */
 
-.container h1 {
-    font-size: 20px;
-}
+    .header {
+        background: #33A;
+        box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.5);
+        color: white;
+        font-weight: bold;
+        margin: 0px 15%;
+        padding: 0.7em;
+    }
 
-.section-user-display {
-    height: 300px;
-    display: block;
-}
+    .header .tagline {
+        padding: 0 0 0 1em;
+        font-weight: normal;
+        font-size: 0.8em;
+    }
 
-.section-user-display .atp-image {
-    width: 40%;
-    padding: 15px 0;
-    float: left;
-}
+/* ---------------------------------------------------------------------------------------------------------- */
 
-.money-tag {
-    display: inline-block;
-    text-align: center;
-    padding: 60px 0;
-    margin: 30px 0;
-    width: 60%;
-}
+/* Sections Style */
 
-.money-tag p {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 25px;
-}
+    .container {
+        width: 70%;
+        padding: 0;
+        text-align: center;
+        border: 1px solid #DDD;
+        margin: 0 auto;
+    }
 
-.money-tag span {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 40px;
-}
+    .container h1 {
+        font-size: 20px;
+    }
 
-.section-forms {
-    height: 375px;
-    display: block;
-    text-align: center;
-}
+    /* Section section-user-display */
 
-.atp-buttons {
-    width: 35%;
-    padding: 0 60px;
-    float: left;
-}
+        .section-user-display {
+            height: 300px;
+            display: block;
+        }
 
-#atp-numbers input:hover {
-    background-color: #333;
-}
+        .section-user-display .atp-image {
+            width: 40%;
+            padding: 15px 0;
+            float: right;
+        }
 
-#atp-numbers input:active {
-    background-color: lightgray;
-}
+        .section-user-display .atp-image figure{
+            width: 200px;
+        }
 
-.atp-buttons input {
-    height: 80px;
-    width: 80px;
-    margin: 5px;
-    border: 2px solid darkslategrey;
-    background-color: gray;
-    border-radius: 10px;
-    font-size: 30px;
-    font-weight: bold;
-}
+    /* Section money-tag */
 
-#atp-delete-submit {
-    padding: 120px 70px;
-}
+        .money-tag {
+            display: inline-block;
+            text-align: center;
+            padding: 60px 0;
+            margin: 30px 0;
+            width: 60%;
+        }
 
-#atp-delete-submit input {
-    width: 140px;
-    font-size: 25px;
-    font-weight: normal;
-}
+        .money-tag p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 25px;
+        }
 
-#atp-delete-submit #delete {
-    background-color: red;
-}
+        .money-tag span {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 40px;
+        }
 
-#atp-delete-submit #delete:hover {
-    background-color: darkred;
-}
+/* ---------------------------------------------------------------------------------------------------------- */
 
-#atp-delete-submit #delete:active {
-    background-color: lightcoral;
-}
+/* Buttons Style */
 
-#atp-delete-submit #submit {
-    background-color: green;
-}
+    .section-forms {
+        height: 375px;
+        display: block;
+        text-align: center;
+    }
 
-#atp-delete-submit #submit:hover {
-    background-color: darkgreen;
-}
+    #atp-numbers input:hover {
+        background-color: #333;
+    }
 
-#atp-delete-submit #submit:active {
-    background-color: lightgreen;
-}
+    #atp-numbers input:active {
+        background-color: lightgray;
+    }
 
-.footer {
-    background: #224555;
-    box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.5);
-    color: white;
-    font-weight: bold;
-    margin: 0px 15%;
-    padding: 0.7em;
-}
+    .atp-buttons {
+        width: 35%;
+        padding: 0 60px;
+        float: left;
+    }
 
-.footer span {
-    padding: 0 20px;
-}
+    .atp-buttons input {
+        height: 80px;
+        width: 80px;
+        margin: 5px;
+        border: 2px solid darkslategrey;
+        background-color: gray;
+        border-radius: 10px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+/* Delete/Request Style */
+
+    #atp-delete-submit {
+        padding: 120px 70px;
+    }
+
+    #atp-delete-submit input {
+        width: 140px;
+        font-size: 25px;
+        font-weight: normal;
+    }
+
+/* Delete Button */
+
+    #atp-delete-submit #delete {
+        background-color: red;
+    }
+
+    #atp-delete-submit #delete:hover {
+        background-color: darkred;
+    }
+
+    #atp-delete-submit #delete:active {
+        background-color: lightcoral;
+    }
+
+/* Request Button */
+
+    #atp-delete-submit #submit {
+        background-color: green;
+    }
+
+    #atp-delete-submit #submit:hover {
+        background-color: darkgreen;
+    }
+
+    #atp-delete-submit #submit:active {
+        background-color: lightgreen;
+    }
+
+/* ---------------------------------------------------------------------------------------------------------- */
+
+/* Footer Style */
+
+    .footer {
+        background: #224555;
+        box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.5);
+        color: white;
+        font-weight: bold;
+        margin: 0px 15%;
+        padding: 0.7em;
+    }
+
+    .footer span {
+        padding: 0 20px;
+    }
+
+/* ----------------------------------------------------------------------------------------------------------- */
